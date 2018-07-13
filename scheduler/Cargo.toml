@@ -1,0 +1,22 @@
+[package]
+name = "scheduler"
+version = "0.1.0"
+authors = ["David Castaneda <davidcasfer@gmail.com> && cbiffle <code@cliffle.com>"]
+
+[dependencies]
+embrs = { path = "../embrs", features = [ "soc:stm32f407" ] }
+
+[features]
+default = []
+
+app_panic_fmt = []
+
+"soc:stm32f407" = [
+  "soc_family:stm32f4[01]",
+]
+
+"soc_family:stm32f4[01]" = ["soc_family:stm32f4"]
+
+"soc_family:stm32f4" = ["cpu:cortex-m4f"]
+
+"cpu:cortex-m4f" = []

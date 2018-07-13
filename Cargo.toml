@@ -1,0 +1,22 @@
+[package]
+name = "emb1"
+version = "0.1.0"
+authors = ["David Castaneda <davidcasfer@gmail.com"]
+
+links="scheduler, memset, contextSwitch"
+build="build.rs"
+
+[dependencies]
+embrs = { path = "embrs", features = [ "soc:stm32f407" ] }
+scheduler = { path = "scheduler", features = [ "soc:stm32f407" ] }
+rlibc = "1.0.0"
+
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+debug= 2
+opt-level = 1
+debug-assertions = true
+panic = "abort"
