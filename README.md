@@ -1,2 +1,27 @@
-# RustSimpleScheduler
-A simple scheduler in Rust for STM32F407 Discovery board. ARM Cortex M4
+Simple Rust Scheduler
+This is a simple Rust scheduler for a STM32F4 Discovery board which is heavily derived on a C/C++ version of the same scheduler and target (https://github.com/DCasFer/CSimpleScheduler).
+How to build 
+STM32F4 Discovery belongs to the target family thumbv7em-none-eabi. These are bare-metal microcontroller targets that only have access to the core library, not std. Therefore the code only builds on Nightly Rust versions (July 2018). Refer to this link https://forge.rust-lang.org/platform-support.html to see Rust support for different targets.
+So it is required to install the following:
+Rust, including Cargo. ( https://doc.rust-lang.org/cargo/getting-started/index.html )
+Xargo (https://github.com/japaric/xargo), which is required to build using nightly versions.
+A toolchain for arm-none-eabi. ( https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads ). This project has been developed in Linux, although it is possible to use other platforms such as Windows.
+Once the toolchain and the rest of components are installed. It is required to do the following steps:
+1) Clone the repo:
+$ git clone https://github.com/DCasFer/RustSimpleScheduler.git
+$ cd RustSimpleScheduler
+2) As explained above, this project requires to compile using a nightly version, therefore
+$ rustup override add nightly
+3) Xargo requires the rust-src component so that it is necessary to add it to your environment.
+In order to build and create the binaries:
+$ rustup component add rust-src
+4) In order to build and create the binaries:
+$ xargo build --release
+Flashing
+In order to flash the binary and also debug it, another open source tool is required. This is OpenOCD or Open On Chip Debuggger:
+OpenOCD ( http://openocd.org/ )
+Once this tool is properly installed:
+Attach an STM32F4 Discovery board via USB, and run:
+$ ./buildFlashBoard.sh
+
+
