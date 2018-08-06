@@ -27,7 +27,7 @@ Xargo requires the rust-src component so that it is necessary to add it to your 
 
     $ rustup component add rust-src
 
-4) In order to build and create the binaries:
+In order to build and create the binaries:
 
     $ xargo build --release
 
