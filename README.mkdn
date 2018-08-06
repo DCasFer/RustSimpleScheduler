@@ -14,18 +14,22 @@ So it is required to install the following:
 - A toolchain for arm-none-eabi. ( https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads ). This project has been developed in Linux, although it is possible to use other platforms such as Windows.
 
 Once the toolchain and the rest of components are installed. It is required to do the following steps:
-1) Clone the repo:
-git clone https://github.com/DCasFer/RustSimpleScheduler.git
-cd RustSimpleScheduler
+Clone the repo:
 
-2) As explained above, this project requires to compile using a nightly version, therefore
-rustup override add nightly
+    $ git clone https://github.com/DCasFer/RustSimpleScheduler.git
+    $ cd RustSimpleScheduler
 
-3) Xargo requires the rust-src component so that it is necessary to add it to your environment.
-rustup component add rust-src
+As explained above, this project requires to compile using a nightly version, therefore
+
+    $ rustup override add nightly
+
+Xargo requires the rust-src component so that it is necessary to add it to your environment.
+
+    $ rustup component add rust-src
 
 4) In order to build and create the binaries:
-xargo build --release
+
+    $ xargo build --release
 
 
 
@@ -36,7 +40,11 @@ In order to flash the binary and also debug it, another open source tool is requ
 
 
 Once this tool is properly installed, attach an STM32F4 Discovery board via USB and run:
-./buildFlashBoard.sh
+
+    $ ./buildFlashBoard.sh
+
+
+
 
 
 
